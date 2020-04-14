@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "323954565031",
+    "firebase_url": "https://ecommerse-e3338.firebaseio.com",
+    "project_id": "ecommerse-e3338",
+    "storage_bucket": "ecommerse-e3338.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323954565031:android:61a07752a95b3a535d6082",
+        "android_client_info": {
+          "package_name": "com.example.ecommerse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323954565031-o2ue1optpmv5qlbac3mubd5t2so1ovs5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecommerse",
+            "certificate_hash": "7eb8138e06617bb22e1c38db339c6125a8845545"
+          }
+        },
+        {
+          "client_id": "323954565031-gin63qh32u57r1u5m0d5iume4kh2ig7i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjAor3NuF_0K_TQociTfoAoSDxMroNINQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323954565031-gin63qh32u57r1u5m0d5iume4kh2ig7i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
