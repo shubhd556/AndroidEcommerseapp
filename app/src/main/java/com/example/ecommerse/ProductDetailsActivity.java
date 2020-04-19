@@ -33,7 +33,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private Button AddtoCartButton;
     private ImageView productImage;
     private ElegantNumberButton numberButton;
-    private String productId = "";
+    private String productId = "",state = "Normal";
     private TextView productPrice, productDescription, productName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +56,26 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                addingToCartList();
+
+
+                if(state.equals("Order Placed.")|| state.equals("Order Shipped."))
+                {
+                    Toast.makeText(ProductDetailsActivity.this, "You can purchase more products,once your order is shipped ", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    addingToCartList();
+                }
+
             }
         });
 
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     private void addingToCartList()
@@ -142,5 +158,33 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
     }
+    private void CheckOrderState()
+    {
+        DatabaseReference ordersRef;
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getPhone());
+        ordersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+
+                if(dataSnapshot.exists())
+                {
+                    String shippingState = dataSnapshot.child("state").getValue().toString();
+                    if(shippingState.equals("Shipped"))
+                    {
+                        state = "Order Shipped.";
+                    }
+                    else if(shippingState.equals("Not Shipped"))
+                    {
+                        state = "Order Placed.";
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 }
